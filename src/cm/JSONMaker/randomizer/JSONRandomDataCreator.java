@@ -59,18 +59,20 @@ public class JSONRandomDataCreator {
 		} else {
 			newValue = argTobeMadeRandom;
 		}
-		long dumyModule  = 1l;
-		for(int y = 0;y <numberOfRandomRecords;y++)
-			dumyModule*=10;
-		
+		/*long dumyModule  = 1l;
 		System.out.println(numberOfRandomRecords);
+		for(int y = 0;y <lengthOfarg;y++)
+			dumyModule*=10;*/
+		
+		System.out.println(newValue);
 		for (long i = 0; i < numberOfRandomRecords; i++) {
-			newValue = newValue % dumyModule;
+			//newValue = newValue % dumyModule;
 			lst.add(newValue);
 			newValue += i % 997;
 			newValue += i % 2;
 			newValue += i % 9;
 			newValue += i % 41;
+			newValue++;
 		}
 		return lst;
 

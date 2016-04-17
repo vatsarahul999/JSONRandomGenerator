@@ -48,7 +48,7 @@ public class JSONWriter {
 
 	private void writeToFile() {
 
-		StringBuffer sb = new StringBuffer();
+		StringBuffer []sb = new StringBuffer[100];
 		int cnt = 0;
 		File f = new File(pathToFile + "/1JSONfile/output.JSON");
 		File f1 = f.getParentFile();
@@ -74,12 +74,17 @@ public class JSONWriter {
 
 		for (JSONRecord t : objectsCreated) {
 			try {
-				sb.append(mapper.writeValueAsString(t));
-				sb.append("\n");
-				if (cnt == 10) {
-					br.write(sb.toString());
-					sb = new StringBuffer();
+				mapper = new ObjectMapper();
+				sb[cnt] = new StringBuffer();
+				sb[cnt].append(mapper.writeValueAsString(t));
+				sb[cnt].append("\n");
+				
+				if (cnt == 99) {
+					for(StringBuffer y1:sb)
+					br.write(y1.toString());
+					
 					System.out.println("Wrtitng to File......");
+					System.out.println(t.getVisIdHigh());
 					cnt = 0;
 				}
 				cnt++;
@@ -99,8 +104,10 @@ public class JSONWriter {
 		}
 		if(cnt!=0)
 		{
+			for(int i =0 ;i<cnt;i++)
+			{
 			try {
-				br.write(sb.toString());
+				br.write(sb[i].toString());
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -108,7 +115,14 @@ public class JSONWriter {
 			//sb = new StringBuffer();
 			System.out.println("Wrtitng to File......");
 		}
+		}
 		
+		try {
+			br.flush();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 

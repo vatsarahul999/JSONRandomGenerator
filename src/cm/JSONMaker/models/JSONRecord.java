@@ -80,7 +80,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
     "truncated",
     "zip"
 })
-public class JSONRecord {
+public class JSONRecord implements Cloneable {
 
     @JsonProperty("reportSuite")
     private String reportSuite;
@@ -214,6 +214,7 @@ public class JSONRecord {
      * 
      */
     public JSONRecord() {
+    	super();
     }
 
     /**
@@ -1599,6 +1600,13 @@ public class JSONRecord {
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
+    }
+    public Object clone(){  
+        try{  
+            return super.clone();  
+        }catch(Exception e){ 
+            return null; 
+        }
     }
 
 }

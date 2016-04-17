@@ -49,13 +49,22 @@ public class JSONMakerEngine {
 		rdmDataCreator = new JSONRandomDataCreator();
 		ArrayList<Long> listOfRandomData=rdmDataCreator.generateRandomValuesForLong(3104877427967206400l, 19, numofRandomRecords);
 		ArrayList<JSONRecord> randomRecords = new ArrayList<JSONRecord>();
+//		JSONRecord[] randomRecordArray = new JSONRecord[100];
 		System.out.println(listOfRandomData.size());
-		JSONRecord tmp = null;
+		JSONRecord tmp =sampleRecord;
+//		long i =1;
 		for(long h:listOfRandomData){
-			tmp = sampleRecord;
+			tmp =(JSONRecord)sampleRecord.clone();
 			tmp.setVisIdHigh(h);
+			System.out.println(tmp);
 			randomRecords.add(tmp);
+			
 		}
+//		for(long h:listOfRandomData){
+//			if(i%100==0)
+//				randomRecordArray = new 
+//		}
+		System.out.println("No of records generated: "+randomRecords.size());
 		System.out.println("Random Records Generated");
 		JSONWriter filewriter = new JSONWriter(pathToOutput,randomRecords);
 		System.out.println("Done");
