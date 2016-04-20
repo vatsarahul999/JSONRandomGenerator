@@ -1,4 +1,4 @@
-package cm.JSONMaker.models;
+package cm.JSONMaker.model.cartadditions;
 
 
 import java.util.HashMap;
@@ -17,7 +17,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 @JsonPropertyOrder({
     "evars"
 })
-public class Evars {
+public class Evars implements Cloneable {
 
     @JsonProperty("evars")
     private Evars_ evars;

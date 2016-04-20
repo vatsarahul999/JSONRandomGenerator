@@ -1,4 +1,5 @@
-package cm.JSONMaker.model.cartadditions;
+
+package cm.JSONMaker.model.purchase;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +10,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -20,14 +23,14 @@ import org.apache.commons.lang.builder.ToStringBuilder;
     "revenue",
     "evars"
 })
-public class Product implements Cloneable {
+public class Product implements Cloneable  {
 
     @JsonProperty("name")
     private String name;
     @JsonProperty("category")
     private String category;
     @JsonProperty("units")
-    private Long units;
+    private Integer units;
     @JsonProperty("revenue")
     private Double revenue;
     @JsonProperty("evars")
@@ -40,6 +43,7 @@ public class Product implements Cloneable {
      * 
      */
     public Product() {
+    super();
     }
 
     /**
@@ -50,7 +54,7 @@ public class Product implements Cloneable {
      * @param units
      * @param revenue
      */
-    public Product(String name, String category, Long units, Double revenue, Evars__ evars) {
+    public Product(String name, String category, Integer units, Double revenue, Evars__ evars) {
         this.name = name;
         this.category = category;
         this.units = units;
@@ -104,7 +108,7 @@ public class Product implements Cloneable {
      *     The units
      */
     @JsonProperty("units")
-    public Long getUnits() {
+    public Integer getUnits() {
         return units;
     }
 
@@ -114,7 +118,7 @@ public class Product implements Cloneable {
      *     The units
      */
     @JsonProperty("units")
-    public void setUnits(Long units) {
+    public void setUnits(Integer units) {
         this.units = units;
     }
 
@@ -172,13 +176,22 @@ public class Product implements Cloneable {
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
     }
-    
-    public Object clone(){  
-        try{  
-            return super.clone();  
-        }catch(Exception e){ 
-            return null; 
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(name).append(category).append(units).append(revenue).append(evars).append(additionalProperties).toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
         }
+        if ((other instanceof Product) == false) {
+            return false;
+        }
+        Product rhs = ((Product) other);
+        return new EqualsBuilder().append(name, rhs.name).append(category, rhs.category).append(units, rhs.units).append(revenue, rhs.revenue).append(evars, rhs.evars).append(additionalProperties, rhs.additionalProperties).isEquals();
     }
 
 }

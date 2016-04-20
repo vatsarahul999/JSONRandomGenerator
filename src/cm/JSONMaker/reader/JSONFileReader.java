@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import cm.JSONMaker.models.JSONRecord;
+import cm.JSONMaker.model.cartadditions.JSONRecord;
 
 
 public class JSONFileReader {

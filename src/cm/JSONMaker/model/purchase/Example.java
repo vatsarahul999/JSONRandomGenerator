@@ -1,5 +1,5 @@
 
-package cm.JSONMaker.model.cartadditions;
+package cm.JSONMaker.model.purchase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,6 +12,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -80,28 +82,28 @@ import org.apache.commons.lang.builder.ToStringBuilder;
     "truncated",
     "zip"
 })
-public class JSONRecord implements Cloneable {
+public class Example implements Cloneable{
 
     @JsonProperty("reportSuite")
     private String reportSuite;
     @JsonProperty("timeGMT")
-    private Long timeGMT;
+    private Integer timeGMT;
     @JsonProperty("receivedTimeGMT")
-    private Long receivedTimeGMT;
+    private Integer receivedTimeGMT;
     @JsonProperty("hitIdHigh")
-    private Long hitIdHigh;
+    private Integer hitIdHigh;
     @JsonProperty("hitIdLow")
-    private Long hitIdLow;
+    private Integer hitIdLow;
     @JsonProperty("mcVisIdHigh")
-    private Long mcVisIdHigh;
+    private Integer mcVisIdHigh;
     @JsonProperty("mcVisIdLow")
-    private Long mcVisIdLow;
+    private Integer mcVisIdLow;
     @JsonProperty("visIdHigh")
-    private Long visIdHigh;
+    private Integer visIdHigh;
     @JsonProperty("visIdLow")
-    private Long visIdLow;
+    private Integer visIdLow;
     @JsonProperty("visIdType")
-    private Long visIdType;
+    private Integer visIdType;
     @JsonProperty("props")
     private Props props;
     @JsonProperty("evars")
@@ -119,7 +121,7 @@ public class JSONRecord implements Cloneable {
     @JsonProperty("geoZip")
     private String geoZip;
     @JsonProperty("geoDMA")
-    private Long geoDMA;
+    private Integer geoDMA;
     @JsonProperty("geoLatitude")
     private Double geoLatitude;
     @JsonProperty("geoLongitude")
@@ -145,9 +147,9 @@ public class JSONRecord implements Cloneable {
     @JsonProperty("javascriptVersion")
     private String javascriptVersion;
     @JsonProperty("monitorWidth")
-    private Long monitorWidth;
+    private Integer monitorWidth;
     @JsonProperty("monitorHeight")
-    private Long monitorHeight;
+    private Integer monitorHeight;
     @JsonProperty("monitorColorDepth")
     private String monitorColorDepth;
     @JsonProperty("mobileDeviceType")
@@ -157,9 +159,9 @@ public class JSONRecord implements Cloneable {
     @JsonProperty("mobileManufacturer")
     private String mobileManufacturer;
     @JsonProperty("mobileScreenWidth")
-    private Long mobileScreenWidth;
+    private Integer mobileScreenWidth;
     @JsonProperty("mobileScreenHeight")
-    private Long mobileScreenHeight;
+    private Integer mobileScreenHeight;
     @JsonProperty("mobileCookieSupport")
     private Boolean mobileCookieSupport;
     @JsonProperty("mobileColorDepth")
@@ -173,13 +175,13 @@ public class JSONRecord implements Cloneable {
     @JsonProperty("pageName")
     private String pageName;
     @JsonProperty("usesPersistentCookie")
-    private Long usesPersistentCookie;
+    private Integer usesPersistentCookie;
     @JsonProperty("homePage")
-    private Long homePage;
+    private Integer homePage;
     @JsonProperty("browserHeight")
-    private Long browserHeight;
+    private Integer browserHeight;
     @JsonProperty("browserWidth")
-    private Long browserWidth;
+    private Integer browserWidth;
     @JsonProperty("javaEnabled")
     private Boolean javaEnabled;
     @JsonProperty("ip")
@@ -199,7 +201,7 @@ public class JSONRecord implements Cloneable {
     @JsonProperty("currency")
     private String currency;
     @JsonProperty("hitSource")
-    private Long hitSource;
+    private Integer hitSource;
     @JsonProperty("transactionId")
     private String transactionId;
     @JsonProperty("truncated")
@@ -213,7 +215,7 @@ public class JSONRecord implements Cloneable {
      * No args constructor for use in serialization
      * 
      */
-    public JSONRecord() {
+    public Example() {
     	super();
     }
 
@@ -282,7 +284,7 @@ public class JSONRecord implements Cloneable {
      * @param mobileScreenHeight
      * @param geoCity
      */
-    public JSONRecord(String reportSuite, Long timeGMT, Long receivedTimeGMT, Long hitIdHigh, Long hitIdLow, Long mcVisIdHigh, Long mcVisIdLow, Long visIdHigh, Long visIdLow, Long visIdType, Props props, Evars evars, Events events, List<Product> products, String geoCountry, String geoRegion, String geoCity, String geoZip, Long geoDMA, Double geoLatitude, Double geoLongitude, String connectionType, String topLevelDomain, String languageAbbrev, String language, String searchEngine, String bot, String operatingSystem, String browserType, String browser, String javascriptVersion, Long monitorWidth, Long monitorHeight, String monitorColorDepth, String mobileDeviceType, String mobileDeviceName, String mobileManufacturer, Long mobileScreenWidth, Long mobileScreenHeight, Boolean mobileCookieSupport, String mobileColorDepth, String mobileAudioSupport, String mobileVideoSupport, String pageURL, String pageName, Long usesPersistentCookie, Long homePage, Long browserHeight, Long browserWidth, Boolean javaEnabled, String ip, Boolean isErrorPage, String purchaseId, String referrer, String state, String userAgent, String plugins, String currency, Long hitSource, String transactionId, Boolean truncated, String zip) {
+    public Example(String reportSuite, Integer timeGMT, Integer receivedTimeGMT, Integer hitIdHigh, Integer hitIdLow, Integer mcVisIdHigh, Integer mcVisIdLow, Integer visIdHigh, Integer visIdLow, Integer visIdType, Props props, Evars evars, Events events, List<Product> products, String geoCountry, String geoRegion, String geoCity, String geoZip, Integer geoDMA, Double geoLatitude, Double geoLongitude, String connectionType, String topLevelDomain, String languageAbbrev, String language, String searchEngine, String bot, String operatingSystem, String browserType, String browser, String javascriptVersion, Integer monitorWidth, Integer monitorHeight, String monitorColorDepth, String mobileDeviceType, String mobileDeviceName, String mobileManufacturer, Integer mobileScreenWidth, Integer mobileScreenHeight, Boolean mobileCookieSupport, String mobileColorDepth, String mobileAudioSupport, String mobileVideoSupport, String pageURL, String pageName, Integer usesPersistentCookie, Integer homePage, Integer browserHeight, Integer browserWidth, Boolean javaEnabled, String ip, Boolean isErrorPage, String purchaseId, String referrer, String state, String userAgent, String plugins, String currency, Integer hitSource, String transactionId, Boolean truncated, String zip) {
         this.reportSuite = reportSuite;
         this.timeGMT = timeGMT;
         this.receivedTimeGMT = receivedTimeGMT;
@@ -373,7 +375,7 @@ public class JSONRecord implements Cloneable {
      *     The timeGMT
      */
     @JsonProperty("timeGMT")
-    public Long getTimeGMT() {
+    public Integer getTimeGMT() {
         return timeGMT;
     }
 
@@ -383,7 +385,7 @@ public class JSONRecord implements Cloneable {
      *     The timeGMT
      */
     @JsonProperty("timeGMT")
-    public void setTimeGMT(Long timeGMT) {
+    public void setTimeGMT(Integer timeGMT) {
         this.timeGMT = timeGMT;
     }
 
@@ -393,7 +395,7 @@ public class JSONRecord implements Cloneable {
      *     The receivedTimeGMT
      */
     @JsonProperty("receivedTimeGMT")
-    public Long getReceivedTimeGMT() {
+    public Integer getReceivedTimeGMT() {
         return receivedTimeGMT;
     }
 
@@ -403,7 +405,7 @@ public class JSONRecord implements Cloneable {
      *     The receivedTimeGMT
      */
     @JsonProperty("receivedTimeGMT")
-    public void setReceivedTimeGMT(Long receivedTimeGMT) {
+    public void setReceivedTimeGMT(Integer receivedTimeGMT) {
         this.receivedTimeGMT = receivedTimeGMT;
     }
 
@@ -413,7 +415,7 @@ public class JSONRecord implements Cloneable {
      *     The hitIdHigh
      */
     @JsonProperty("hitIdHigh")
-    public Long getHitIdHigh() {
+    public Integer getHitIdHigh() {
         return hitIdHigh;
     }
 
@@ -423,7 +425,7 @@ public class JSONRecord implements Cloneable {
      *     The hitIdHigh
      */
     @JsonProperty("hitIdHigh")
-    public void setHitIdHigh(Long hitIdHigh) {
+    public void setHitIdHigh(Integer hitIdHigh) {
         this.hitIdHigh = hitIdHigh;
     }
 
@@ -433,7 +435,7 @@ public class JSONRecord implements Cloneable {
      *     The hitIdLow
      */
     @JsonProperty("hitIdLow")
-    public Long getHitIdLow() {
+    public Integer getHitIdLow() {
         return hitIdLow;
     }
 
@@ -443,7 +445,7 @@ public class JSONRecord implements Cloneable {
      *     The hitIdLow
      */
     @JsonProperty("hitIdLow")
-    public void setHitIdLow(Long hitIdLow) {
+    public void setHitIdLow(Integer hitIdLow) {
         this.hitIdLow = hitIdLow;
     }
 
@@ -453,7 +455,7 @@ public class JSONRecord implements Cloneable {
      *     The mcVisIdHigh
      */
     @JsonProperty("mcVisIdHigh")
-    public Long getMcVisIdHigh() {
+    public Integer getMcVisIdHigh() {
         return mcVisIdHigh;
     }
 
@@ -463,7 +465,7 @@ public class JSONRecord implements Cloneable {
      *     The mcVisIdHigh
      */
     @JsonProperty("mcVisIdHigh")
-    public void setMcVisIdHigh(Long mcVisIdHigh) {
+    public void setMcVisIdHigh(Integer mcVisIdHigh) {
         this.mcVisIdHigh = mcVisIdHigh;
     }
 
@@ -473,7 +475,7 @@ public class JSONRecord implements Cloneable {
      *     The mcVisIdLow
      */
     @JsonProperty("mcVisIdLow")
-    public Long getMcVisIdLow() {
+    public Integer getMcVisIdLow() {
         return mcVisIdLow;
     }
 
@@ -483,7 +485,7 @@ public class JSONRecord implements Cloneable {
      *     The mcVisIdLow
      */
     @JsonProperty("mcVisIdLow")
-    public void setMcVisIdLow(Long mcVisIdLow) {
+    public void setMcVisIdLow(Integer mcVisIdLow) {
         this.mcVisIdLow = mcVisIdLow;
     }
 
@@ -493,7 +495,7 @@ public class JSONRecord implements Cloneable {
      *     The visIdHigh
      */
     @JsonProperty("visIdHigh")
-    public Long getVisIdHigh() {
+    public Integer getVisIdHigh() {
         return visIdHigh;
     }
 
@@ -503,7 +505,7 @@ public class JSONRecord implements Cloneable {
      *     The visIdHigh
      */
     @JsonProperty("visIdHigh")
-    public void setVisIdHigh(Long visIdHigh) {
+    public void setVisIdHigh(Integer visIdHigh) {
         this.visIdHigh = visIdHigh;
     }
 
@@ -513,7 +515,7 @@ public class JSONRecord implements Cloneable {
      *     The visIdLow
      */
     @JsonProperty("visIdLow")
-    public Long getVisIdLow() {
+    public Integer getVisIdLow() {
         return visIdLow;
     }
 
@@ -523,7 +525,7 @@ public class JSONRecord implements Cloneable {
      *     The visIdLow
      */
     @JsonProperty("visIdLow")
-    public void setVisIdLow(Long visIdLow) {
+    public void setVisIdLow(Integer visIdLow) {
         this.visIdLow = visIdLow;
     }
 
@@ -533,7 +535,7 @@ public class JSONRecord implements Cloneable {
      *     The visIdType
      */
     @JsonProperty("visIdType")
-    public Long getVisIdType() {
+    public Integer getVisIdType() {
         return visIdType;
     }
 
@@ -543,7 +545,7 @@ public class JSONRecord implements Cloneable {
      *     The visIdType
      */
     @JsonProperty("visIdType")
-    public void setVisIdType(Long visIdType) {
+    public void setVisIdType(Integer visIdType) {
         this.visIdType = visIdType;
     }
 
@@ -713,7 +715,7 @@ public class JSONRecord implements Cloneable {
      *     The geoDMA
      */
     @JsonProperty("geoDMA")
-    public Long getGeoDMA() {
+    public Integer getGeoDMA() {
         return geoDMA;
     }
 
@@ -723,7 +725,7 @@ public class JSONRecord implements Cloneable {
      *     The geoDMA
      */
     @JsonProperty("geoDMA")
-    public void setGeoDMA(Long geoDMA) {
+    public void setGeoDMA(Integer geoDMA) {
         this.geoDMA = geoDMA;
     }
 
@@ -973,7 +975,7 @@ public class JSONRecord implements Cloneable {
      *     The monitorWidth
      */
     @JsonProperty("monitorWidth")
-    public Long getMonitorWidth() {
+    public Integer getMonitorWidth() {
         return monitorWidth;
     }
 
@@ -983,7 +985,7 @@ public class JSONRecord implements Cloneable {
      *     The monitorWidth
      */
     @JsonProperty("monitorWidth")
-    public void setMonitorWidth(Long monitorWidth) {
+    public void setMonitorWidth(Integer monitorWidth) {
         this.monitorWidth = monitorWidth;
     }
 
@@ -993,7 +995,7 @@ public class JSONRecord implements Cloneable {
      *     The monitorHeight
      */
     @JsonProperty("monitorHeight")
-    public Long getMonitorHeight() {
+    public Integer getMonitorHeight() {
         return monitorHeight;
     }
 
@@ -1003,7 +1005,7 @@ public class JSONRecord implements Cloneable {
      *     The monitorHeight
      */
     @JsonProperty("monitorHeight")
-    public void setMonitorHeight(Long monitorHeight) {
+    public void setMonitorHeight(Integer monitorHeight) {
         this.monitorHeight = monitorHeight;
     }
 
@@ -1093,7 +1095,7 @@ public class JSONRecord implements Cloneable {
      *     The mobileScreenWidth
      */
     @JsonProperty("mobileScreenWidth")
-    public Long getMobileScreenWidth() {
+    public Integer getMobileScreenWidth() {
         return mobileScreenWidth;
     }
 
@@ -1103,7 +1105,7 @@ public class JSONRecord implements Cloneable {
      *     The mobileScreenWidth
      */
     @JsonProperty("mobileScreenWidth")
-    public void setMobileScreenWidth(Long mobileScreenWidth) {
+    public void setMobileScreenWidth(Integer mobileScreenWidth) {
         this.mobileScreenWidth = mobileScreenWidth;
     }
 
@@ -1113,7 +1115,7 @@ public class JSONRecord implements Cloneable {
      *     The mobileScreenHeight
      */
     @JsonProperty("mobileScreenHeight")
-    public Long getMobileScreenHeight() {
+    public Integer getMobileScreenHeight() {
         return mobileScreenHeight;
     }
 
@@ -1123,7 +1125,7 @@ public class JSONRecord implements Cloneable {
      *     The mobileScreenHeight
      */
     @JsonProperty("mobileScreenHeight")
-    public void setMobileScreenHeight(Long mobileScreenHeight) {
+    public void setMobileScreenHeight(Integer mobileScreenHeight) {
         this.mobileScreenHeight = mobileScreenHeight;
     }
 
@@ -1253,7 +1255,7 @@ public class JSONRecord implements Cloneable {
      *     The usesPersistentCookie
      */
     @JsonProperty("usesPersistentCookie")
-    public Long getUsesPersistentCookie() {
+    public Integer getUsesPersistentCookie() {
         return usesPersistentCookie;
     }
 
@@ -1263,7 +1265,7 @@ public class JSONRecord implements Cloneable {
      *     The usesPersistentCookie
      */
     @JsonProperty("usesPersistentCookie")
-    public void setUsesPersistentCookie(Long usesPersistentCookie) {
+    public void setUsesPersistentCookie(Integer usesPersistentCookie) {
         this.usesPersistentCookie = usesPersistentCookie;
     }
 
@@ -1273,7 +1275,7 @@ public class JSONRecord implements Cloneable {
      *     The homePage
      */
     @JsonProperty("homePage")
-    public Long getHomePage() {
+    public Integer getHomePage() {
         return homePage;
     }
 
@@ -1283,7 +1285,7 @@ public class JSONRecord implements Cloneable {
      *     The homePage
      */
     @JsonProperty("homePage")
-    public void setHomePage(Long homePage) {
+    public void setHomePage(Integer homePage) {
         this.homePage = homePage;
     }
 
@@ -1293,7 +1295,7 @@ public class JSONRecord implements Cloneable {
      *     The browserHeight
      */
     @JsonProperty("browserHeight")
-    public Long getBrowserHeight() {
+    public Integer getBrowserHeight() {
         return browserHeight;
     }
 
@@ -1303,7 +1305,7 @@ public class JSONRecord implements Cloneable {
      *     The browserHeight
      */
     @JsonProperty("browserHeight")
-    public void setBrowserHeight(Long browserHeight) {
+    public void setBrowserHeight(Integer browserHeight) {
         this.browserHeight = browserHeight;
     }
 
@@ -1313,7 +1315,7 @@ public class JSONRecord implements Cloneable {
      *     The browserWidth
      */
     @JsonProperty("browserWidth")
-    public Long getBrowserWidth() {
+    public Integer getBrowserWidth() {
         return browserWidth;
     }
 
@@ -1323,7 +1325,7 @@ public class JSONRecord implements Cloneable {
      *     The browserWidth
      */
     @JsonProperty("browserWidth")
-    public void setBrowserWidth(Long browserWidth) {
+    public void setBrowserWidth(Integer browserWidth) {
         this.browserWidth = browserWidth;
     }
 
@@ -1513,7 +1515,7 @@ public class JSONRecord implements Cloneable {
      *     The hitSource
      */
     @JsonProperty("hitSource")
-    public Long getHitSource() {
+    public Integer getHitSource() {
         return hitSource;
     }
 
@@ -1523,7 +1525,7 @@ public class JSONRecord implements Cloneable {
      *     The hitSource
      */
     @JsonProperty("hitSource")
-    public void setHitSource(Long hitSource) {
+    public void setHitSource(Integer hitSource) {
         this.hitSource = hitSource;
     }
 
@@ -1601,12 +1603,30 @@ public class JSONRecord implements Cloneable {
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
     }
-    public Object clone(){  
-        try{  
-            return super.clone();  
-        }catch(Exception e){ 
-            return null; 
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(reportSuite).append(timeGMT).append(receivedTimeGMT).append(hitIdHigh).append(hitIdLow).append(mcVisIdHigh).append(mcVisIdLow).append(visIdHigh).append(visIdLow).append(visIdType).append(props).append(evars).append(events).append(products).append(geoCountry).append(geoRegion).append(geoCity).append(geoZip).append(geoDMA).append(geoLatitude).append(geoLongitude).append(connectionType).append(topLevelDomain).append(languageAbbrev).append(language).append(searchEngine).append(bot).append(operatingSystem).append(browserType).append(browser).append(javascriptVersion).append(monitorWidth).append(monitorHeight).append(monitorColorDepth).append(mobileDeviceType).append(mobileDeviceName).append(mobileManufacturer).append(mobileScreenWidth).append(mobileScreenHeight).append(mobileCookieSupport).append(mobileColorDepth).append(mobileAudioSupport).append(mobileVideoSupport).append(pageURL).append(pageName).append(usesPersistentCookie).append(homePage).append(browserHeight).append(browserWidth).append(javaEnabled).append(ip).append(isErrorPage).append(purchaseId).append(referrer).append(state).append(userAgent).append(plugins).append(currency).append(hitSource).append(transactionId).append(truncated).append(zip).append(additionalProperties).toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
         }
+        if ((other instanceof Example) == false) {
+            return false;
+        }
+        Example rhs = ((Example) other);
+        return new EqualsBuilder().append(reportSuite, rhs.reportSuite).append(timeGMT, rhs.timeGMT).append(receivedTimeGMT, rhs.receivedTimeGMT).append(hitIdHigh, rhs.hitIdHigh).append(hitIdLow, rhs.hitIdLow).append(mcVisIdHigh, rhs.mcVisIdHigh).append(mcVisIdLow, rhs.mcVisIdLow).append(visIdHigh, rhs.visIdHigh).append(visIdLow, rhs.visIdLow).append(visIdType, rhs.visIdType).append(props, rhs.props).append(evars, rhs.evars).append(events, rhs.events).append(products, rhs.products).append(geoCountry, rhs.geoCountry).append(geoRegion, rhs.geoRegion).append(geoCity, rhs.geoCity).append(geoZip, rhs.geoZip).append(geoDMA, rhs.geoDMA).append(geoLatitude, rhs.geoLatitude).append(geoLongitude, rhs.geoLongitude).append(connectionType, rhs.connectionType).append(topLevelDomain, rhs.topLevelDomain).append(languageAbbrev, rhs.languageAbbrev).append(language, rhs.language).append(searchEngine, rhs.searchEngine).append(bot, rhs.bot).append(operatingSystem, rhs.operatingSystem).append(browserType, rhs.browserType).append(browser, rhs.browser).append(javascriptVersion, rhs.javascriptVersion).append(monitorWidth, rhs.monitorWidth).append(monitorHeight, rhs.monitorHeight).append(monitorColorDepth, rhs.monitorColorDepth).append(mobileDeviceType, rhs.mobileDeviceType).append(mobileDeviceName, rhs.mobileDeviceName).append(mobileManufacturer, rhs.mobileManufacturer).append(mobileScreenWidth, rhs.mobileScreenWidth).append(mobileScreenHeight, rhs.mobileScreenHeight).append(mobileCookieSupport, rhs.mobileCookieSupport).append(mobileColorDepth, rhs.mobileColorDepth).append(mobileAudioSupport, rhs.mobileAudioSupport).append(mobileVideoSupport, rhs.mobileVideoSupport).append(pageURL, rhs.pageURL).append(pageName, rhs.pageName).append(usesPersistentCookie, rhs.usesPersistentCookie).append(homePage, rhs.homePage).append(browserHeight, rhs.browserHeight).append(browserWidth, rhs.browserWidth).append(javaEnabled, rhs.javaEnabled).append(ip, rhs.ip).append(isErrorPage, rhs.isErrorPage).append(purchaseId, rhs.purchaseId).append(referrer, rhs.referrer).append(state, rhs.state).append(userAgent, rhs.userAgent).append(plugins, rhs.plugins).append(currency, rhs.currency).append(hitSource, rhs.hitSource).append(transactionId, rhs.transactionId).append(truncated, rhs.truncated).append(zip, rhs.zip).append(additionalProperties, rhs.additionalProperties).isEquals();
+    }
+    public Object clone(){
+    	try{
+    		return super.clone();
+    	}
+    	catch(Exception e){
+    		return null;
+    	}
     }
 
 }

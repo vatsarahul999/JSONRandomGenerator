@@ -1,4 +1,4 @@
-package cm.JSONMaker.models;
+package cm.JSONMaker.model.cartadditions;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +18,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
     "exponent",
     "unique"
 })
-public class CartAddition {
+public class CartAddition implements Cloneable{
 
     @JsonProperty("count")
     private Long count;
@@ -122,5 +122,13 @@ public class CartAddition {
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
     }
+    
+	public Object clone() {
+		try {
+			return super.clone();
+		} catch (Exception e) {
+			return null;
+		}
+	}
 
 }

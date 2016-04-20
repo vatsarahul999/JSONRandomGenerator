@@ -1,5 +1,5 @@
 
-package cm.JSONMaker.model.cartadditions;
+package cm.JSONMaker.model.purchase;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,6 +10,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -33,7 +35,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
     "eVar71",
     "eVar40"
 })
-public class Evars_ implements Cloneable {
+public class Evars_ {
 
     @JsonProperty("eVar22")
     private String eVar22;
@@ -77,6 +79,7 @@ public class Evars_ implements Cloneable {
      * 
      */
     public Evars_() {
+    	super();
     }
 
     /**
@@ -474,11 +477,29 @@ public class Evars_ implements Cloneable {
         this.additionalProperties.put(name, value);
     }
 
-	public Object clone() {
-		try {
-			return super.clone();
-		} catch (Exception e) {
-			return null;
-		}
-	}
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(eVar22).append(eVar20).append(eVar21).append(eVar9).append(eVar39).append(eVar48).append(eVar75).append(eVar59).append(eVar17).append(eVar18).append(eVar56).append(eVar19).append(eVar42).append(eVar68).append(eVar73).append(eVar71).append(eVar40).append(additionalProperties).toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+        if ((other instanceof Evars_) == false) {
+            return false;
+        }
+        Evars_ rhs = ((Evars_) other);
+        return new EqualsBuilder().append(eVar22, rhs.eVar22).append(eVar20, rhs.eVar20).append(eVar21, rhs.eVar21).append(eVar9, rhs.eVar9).append(eVar39, rhs.eVar39).append(eVar48, rhs.eVar48).append(eVar75, rhs.eVar75).append(eVar59, rhs.eVar59).append(eVar17, rhs.eVar17).append(eVar18, rhs.eVar18).append(eVar56, rhs.eVar56).append(eVar19, rhs.eVar19).append(eVar42, rhs.eVar42).append(eVar68, rhs.eVar68).append(eVar73, rhs.eVar73).append(eVar71, rhs.eVar71).append(eVar40, rhs.eVar40).append(additionalProperties, rhs.additionalProperties).isEquals();
+    }
+    public Object clone(){
+    	try{
+    		return super.clone();
+    	}
+    	catch(Exception e){
+    		return null;
+    	}
+    }
+
 }

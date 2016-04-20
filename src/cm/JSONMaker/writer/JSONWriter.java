@@ -10,7 +10,7 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import cm.JSONMaker.models.JSONRecord;
+import cm.JSONMaker.model.cartadditions.JSONRecord;
 
 public class JSONWriter {
 	String pathToFile;
@@ -21,50 +21,30 @@ public class JSONWriter {
 		super();
 		this.pathToFile = pathToFile;
 		this.objectsCreated = objectsCreated;
-		//writeToManyFiles();
+		// writeToManyFiles();
 		mapper = new ObjectMapper();
 		writeToFile();
 	}
 
-	private void writeToManyFiles() {
-		// TODO Auto-generated method stub
-		long cnt = 0;
-		for (JSONRecord t : objectsCreated) {
-			try {
-				mapper.writeValue(new File(pathToFile + "/part" + cnt), t);
-			} catch (JsonGenerationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (JsonMappingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			cnt++;
-		}
-	}
-
 	private void writeToFile() {
 
-		StringBuffer []sb = new StringBuffer[100];
+		StringBuffer[] sb = new StringBuffer[100];
 		int cnt = 0;
 		File f = new File(pathToFile + "/1JSONfile/output.JSON");
 		File f1 = f.getParentFile();
-		if(f1.exists())
+		if (f1.exists())
 			f1.mkdirs();
-		
+
 		if (!f.exists()) {
 			try {
-				
+
 				f.createNewFile();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		BufferedWriter br =null;
+		BufferedWriter br = null;
 		try {
 			br = new BufferedWriter(new FileWriter(f));
 		} catch (IOException e1) {
@@ -78,17 +58,17 @@ public class JSONWriter {
 				sb[cnt] = new StringBuffer();
 				sb[cnt].append(mapper.writeValueAsString(t));
 				sb[cnt].append("\n");
-				
+
 				if (cnt == 99) {
-					for(StringBuffer y1:sb)
-					br.write(y1.toString());
-					
+					for (StringBuffer y1 : sb)
+						br.write(y1.toString());
+
 					System.out.println("Wrtitng to File......");
-					System.out.println(t.getVisIdHigh());
+					// System.out.println(t.getVisIdHigh());
 					cnt = 0;
 				}
 				cnt++;
-				
+
 			} catch (JsonGenerationException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -99,24 +79,21 @@ public class JSONWriter {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 
 		}
-		if(cnt!=0)
-		{
-			for(int i =0 ;i<cnt;i++)
-			{
-			try {
-				br.write(sb[i].toString());
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		if (cnt != 0) {
+			for (int i = 0; i < cnt; i++) {
+				try {
+					br.write(sb[i].toString());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				// sb = new StringBuffer();
+				System.out.println("Wrtitng to File......");
 			}
-			//sb = new StringBuffer();
-			System.out.println("Wrtitng to File......");
 		}
-		}
-		
+
 		try {
 			br.flush();
 		} catch (IOException e) {

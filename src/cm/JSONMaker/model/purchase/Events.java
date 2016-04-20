@@ -1,4 +1,5 @@
-package cm.JSONMaker.model.cartadditions;
+
+package cm.JSONMaker.model.purchase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,18 +12,20 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Generated("org.jsonschema2pojo")
 @JsonPropertyOrder({
-    "cartAdditions",
+    "purchase",
     "carts"
 })
-public class Events implements Cloneable {
+public class Events implements Cloneable{
 
-    @JsonProperty("cartAdditions")
-    private List<CartAddition> cartAdditions = new ArrayList<CartAddition>();
+    @JsonProperty("purchase")
+    private List<Purchase> purchase = new ArrayList<Purchase>();
     @JsonProperty("carts")
     private List<Cart> carts = new ArrayList<Cart>();
     @JsonIgnore
@@ -39,31 +42,31 @@ public class Events implements Cloneable {
     /**
      * 
      * @param carts
-     * @param cartAdditions
+     * @param purchase
      */
-    public Events(List<CartAddition> cartAdditions, List<Cart> carts) {
-        this.cartAdditions = cartAdditions;
+    public Events(List<Purchase> purchase, List<Cart> carts) {
+        this.purchase = purchase;
         this.carts = carts;
     }
 
     /**
      * 
      * @return
-     *     The cartAdditions
+     *     The purchase
      */
-    @JsonProperty("cartAdditions")
-    public List<CartAddition> getCartAdditions() {
-        return cartAdditions;
+    @JsonProperty("purchase")
+    public List<Purchase> getPurchase() {
+        return purchase;
     }
 
     /**
      * 
-     * @param cartAdditions
-     *     The cartAdditions
+     * @param purchase
+     *     The purchase
      */
-    @JsonProperty("cartAdditions")
-    public void setCartAdditions(List<CartAddition> cartAdditions) {
-        this.cartAdditions = cartAdditions;
+    @JsonProperty("purchase")
+    public void setPurchase(List<Purchase> purchase) {
+        this.purchase = purchase;
     }
 
     /**
@@ -99,6 +102,31 @@ public class Events implements Cloneable {
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(purchase).append(carts).append(additionalProperties).toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+        if ((other instanceof Events) == false) {
+            return false;
+        }
+        Events rhs = ((Events) other);
+        return new EqualsBuilder().append(purchase, rhs.purchase).append(carts, rhs.carts).append(additionalProperties, rhs.additionalProperties).isEquals();
+    }
+    public Object clone(){
+    	try{
+    		return super.clone();
+    	}
+    	catch(Exception e){
+    		return null;
+    	}
     }
 
 }

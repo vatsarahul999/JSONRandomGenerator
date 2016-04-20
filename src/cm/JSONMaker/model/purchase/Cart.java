@@ -1,4 +1,6 @@
-package cm.JSONMaker.model.cartadditions;
+package cm.JSONMaker.model.purchase;
+
+
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Generated;
@@ -8,6 +10,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -20,9 +24,9 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 public class Cart implements Cloneable{
 
     @JsonProperty("count")
-    private Long count;
+    private Integer count;
     @JsonProperty("exponent")
-    private Long exponent;
+    private Integer exponent;
     @JsonProperty("unique")
     private String unique;
     @JsonIgnore
@@ -33,6 +37,7 @@ public class Cart implements Cloneable{
      * 
      */
     public Cart() {
+    	super();
     }
 
     /**
@@ -41,7 +46,7 @@ public class Cart implements Cloneable{
      * @param count
      * @param exponent
      */
-    public Cart(Long count, Long exponent, String unique) {
+    public Cart(Integer count, Integer exponent, String unique) {
         this.count = count;
         this.exponent = exponent;
         this.unique = unique;
@@ -53,7 +58,7 @@ public class Cart implements Cloneable{
      *     The count
      */
     @JsonProperty("count")
-    public Long getCount() {
+    public Integer getCount() {
         return count;
     }
 
@@ -63,7 +68,7 @@ public class Cart implements Cloneable{
      *     The count
      */
     @JsonProperty("count")
-    public void setCount(Long count) {
+    public void setCount(Integer count) {
         this.count = count;
     }
 
@@ -73,7 +78,7 @@ public class Cart implements Cloneable{
      *     The exponent
      */
     @JsonProperty("exponent")
-    public Long getExponent() {
+    public Integer getExponent() {
         return exponent;
     }
 
@@ -83,7 +88,7 @@ public class Cart implements Cloneable{
      *     The exponent
      */
     @JsonProperty("exponent")
-    public void setExponent(Long exponent) {
+    public void setExponent(Integer exponent) {
         this.exponent = exponent;
     }
 
@@ -121,7 +126,23 @@ public class Cart implements Cloneable{
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
     }
-    
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(count).append(exponent).append(unique).append(additionalProperties).toHashCode();
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+        if ((other instanceof Cart) == false) {
+            return false;
+        }
+        Cart rhs = ((Cart) other);
+        return new EqualsBuilder().append(count, rhs.count).append(exponent, rhs.exponent).append(unique, rhs.unique).append(additionalProperties, rhs.additionalProperties).isEquals();
+    }
     public Object clone(){  
         try{  
             return super.clone();  
